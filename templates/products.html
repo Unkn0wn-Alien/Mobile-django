@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style_1.css' %}">
+    <title>Produktlar</title>
+</head>
+<body style="background-color:#b7fdfd">
+<table class="style-table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Ta'rifi</th>
+            <th>Narxi</th>
+            <th>Rangi</th>
+            <th>Xotirasi</th>
+        </tr>
+    </thead>
+<tbody>
+        {% for i in product %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.brand }}</td>
+                <td>{{ i.product_title }}</td>
+                <td>{{ i.product_description }}</td>
+                <td>{{ i.product_price }}</td>
+                <td>{{ i.product_color }}</td>
+                <td>{{ i.product_memory }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'get_brands' %}" class="button">Asosiy menyu</a>
+</body>
+</html>
